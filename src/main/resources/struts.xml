@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="employeeSys" extends="struts-default">
+        <action name="login" class="com.ibm.actions.LoginAction" method="execute">
+            <result name="success" type="chain">home</result>
+            <result name="failure">/login.jsp</result>
+        </action>
+
+        <action name="home" class="com.ibm.actions.HomeAction" method="execute">
+            <result>/mainEmployee.jsp</result>
+        </action>
+
+        <action name="addEmployee" class="com.ibm.actions.EmployeeAction" method="addEmployee">
+            <result name="success" type="chain">home</result>
+            <result name="failure">/addEmployee.jsp</result>
+        </action>
+
+        <action name="editEmployeePage" class="com.ibm.actions.EmployeeAction" method="getEmployee">
+            <result>/editEmployee.jsp</result>
+        </action>
+
+        <!-- todo: need to pass id to the editEmployee function to avoid making an extra database call -->
+        <action name="editEmployee" class="com.ibm.actions.EmployeeAction" method="editEmployee">
+            <result name="success" type="chain">home</result>
+            <result name="failure" type="chain">editEmployeePage</result>
+        </action>
+    </package>
+</struts>
