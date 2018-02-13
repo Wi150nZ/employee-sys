@@ -7,10 +7,11 @@ import java.sql.Statement;
 
 public class DAO {
     // information to connect to the SQL database
-    private static String driverClass = "com.mysql.cj.jdbc.Driver";
-    private static String url = "jdbc:mysql://ibm-admin-hp.usla.ibm.com:3306/scc?useSSL=true";
-    private static String dbUser = "scc";
-    private static String dbPass = "scc";
+    // note: removed for security reasons
+    private static String driverClass = "";
+    private static String url = "";
+    private static String dbUser = "";
+    private static String dbPass = "";
 
     Connection connection;
     Statement statement;
